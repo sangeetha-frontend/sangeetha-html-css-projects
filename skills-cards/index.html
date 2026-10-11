@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Skills Cards | Sangeetha</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f6fb;
+            color: #24243e;
+            line-height: 1.6;
+        }
+
+        header {
+            text-align: center;
+            padding: 45px 20px;
+            background: #24243e;
+            color: white;
+        }
+
+        header h1 {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+
+        main {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .intro {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+        }
+
+        .skill-card {
+            background: white;
+            padding: 28px 20px;
+            text-align: center;
+            border-radius: 14px;
+            box-shadow: 0 5px 18px #24243e12;
+            border-bottom: 4px solid #6c63ff;
+            transition: transform 0.3s ease;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-6px);
+        }
+
+        .skill-icon {
+            font-size: 38px;
+            margin-bottom: 12px;
+        }
+
+        .skill-card h2 {
+            font-size: 21px;
+            margin-bottom: 8px;
+        }
+
+        .skill-card p {
+            color: #666;
+            font-size: 14px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 22px;
+            background: #24243e;
+            color: white;
+            margin-top: 40px;
+        }
+
+        @media (max-width: 700px) {
+            .skills-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 450px) {
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            header h1 {
+                font-size: 29px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>My Skills</h1>
+        <p>Skills I'm learning and improving every day</p>
+    </header>
+
+    <main>
+        <div class="intro">
+            <h2>What I Can Do</h2>
+            <p>Here are some of my web development skills.</p>
+        </div>
+
+        <div class="skills-grid">
+
+            <div class="skill-card">
+                <div class="skill-icon">🌐</div>
+                <h2>HTML</h2>
+                <p>Creating structured web pages.</p>
+            </div>
+
+            <div class="skill-card">
+                <div class="skill-icon">🎨</div>
+                <h2>CSS</h2>
+                <p>Designing attractive, responsive layouts.</p>
+            </div>
+
+            <div class="skill-card">
+                <div class="skill-icon">📱</div>
+                <h2>Responsive Design</h2>
+                <p>Making websites work on different screens.</p>
+            </div>
+
+            <div class="skill-card">
+                <div class="skill-icon">⚙️</div>
+                <h2>JavaScript</h2>
+                <p>Learning interactive web features.</p>
+            </div>
+
+            <div class="skill-card">
+                <div class="skill-icon">🧩</div>
+                <h2>Flexbox</h2>
+                <p>Arranging elements with flexible layouts.</p>
+            </div>
+
+            <div class="skill-card">
+                <div class="skill-icon">💻</div>
+                <h2>Webflow</h2>
+                <p>Building websites with visual development tools.</p>
+            </div>
+
+        </div>
+    </main>
+
+    <footer>
+        <p>Created by Sangeetha | HTML & CSS Practice</p>
+    </footer>
+
+</body>
+</html>
+```
