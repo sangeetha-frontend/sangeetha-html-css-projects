@@ -1,0 +1,218 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Forms | Sangeetha</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f3f4fa;
+            color: #24243e;
+            line-height: 1.6;
+        }
+
+        header {
+            background: #24243e;
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        header h1 {
+            font-size: 36px;
+            margin-bottom: 8px;
+        }
+
+        main {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .forms-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 25px;
+        }
+
+        .form-card {
+            background: white;
+            padding: 28px;
+            border-radius: 14px;
+            box-shadow: 0 5px 20px #24243e12;
+        }
+
+        .form-card h2 {
+            margin-bottom: 8px;
+            font-size: 23px;
+        }
+
+        .form-card > p {
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin: 12px 0 6px;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        input,
+        textarea,
+        select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #d5d6e0;
+            border-radius: 7px;
+            font: inherit;
+            background: white;
+        }
+
+        textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+
+        input:focus,
+        textarea:focus,
+        select:focus {
+            outline: 2px solid #6c63ff;
+            border-color: #6c63ff;
+        }
+
+        button {
+            width: 100%;
+            margin-top: 18px;
+            padding: 13px;
+            background: #6c63ff;
+            color: white;
+            border: none;
+            border-radius: 7px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #5148e5;
+        }
+
+        .message {
+            margin-top: 12px;
+            color: #267348;
+            font-size: 14px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 22px;
+            margin-top: 40px;
+            background: #24243e;
+            color: white;
+        }
+
+        @media (max-width: 650px) {
+            .forms-grid {
+                grid-template-columns: 1fr;
+            }
+
+            header h1 {
+                font-size: 29px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>Contact Forms</h1>
+        <p>Practice with clean and responsive HTML forms</p>
+    </header>
+
+    <main>
+        <div class="forms-grid">
+
+            <section class="form-card">
+                <h2>Get in Touch</h2>
+                <p>Send a message using this simple contact form.</p>
+
+                <form class="demo-form">
+                    <label for="name">Full Name</label>
+                    <input id="name" name="name" type="text"
+                           placeholder="Enter your name" required>
+
+                    <label for="email">Email Address</label>
+                    <input id="email" name="email" type="email"
+                           placeholder="Enter your email" required>
+
+                    <label for="message">Your Message</label>
+                    <textarea id="message" name="message"
+                              placeholder="Write your message" required></textarea>
+
+                    <button type="submit">Send Message</button>
+                    <p class="message" aria-live="polite"></p>
+                </form>
+            </section>
+
+            <section class="form-card">
+                <h2>Project Inquiry</h2>
+                <p>Share a few details about your project.</p>
+
+                <form class="demo-form">
+                    <label for="project-name">Your Name</label>
+                    <input id="project-name" name="project-name"
+                           type="text" placeholder="Enter your name" required>
+
+                    <label for="project-email">Email Address</label>
+                    <input id="project-email" name="project-email"
+                           type="email" placeholder="Enter your email" required>
+
+                    <label for="service">Choose a Service</label>
+                    <select id="service" name="service" required>
+                        <option value="">Select a service</option>
+                        <option>Website Design</option>
+                        <option>Landing Page</option>
+                        <option>Responsive Design</option>
+                    </select>
+
+                    <label for="details">Project Details</label>
+                    <textarea id="details" name="details"
+                              placeholder="Tell me about your project" required></textarea>
+
+                    <button type="submit">Submit Inquiry</button>
+                    <p class="message" aria-live="polite"></p>
+                </form>
+            </section>
+
+        </div>
+    </main>
+
+    <footer>
+        <p>Created by Sangeetha | HTML & CSS Practice</p>
+    </footer>
+
+    <script>
+        document.querySelectorAll(".demo-form").forEach(function(form) {
+            form.addEventListener("submit", function(event) {
+                event.preventDefault();
+                form.querySelector(".message").textContent =
+                    "Demo only — your message was not sent.";
+            });
+        });
+    </script>
+
+</body>
+</html>
+```
