@@ -1,0 +1,146 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flexbox Practice | Sangeetha</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f6fb;
+            color: #222;
+            line-height: 1.6;
+        }
+
+        header {
+            background: #24243e;
+            color: white;
+            text-align: center;
+            padding: 35px 20px;
+        }
+
+        header h1 {
+            margin-bottom: 8px;
+        }
+
+        main {
+            max-width: 1000px;
+            margin: 35px auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            margin: 28px 0 15px;
+            color: #24243e;
+        }
+
+        .flex-container {
+            display: flex;
+            gap: 15px;
+            padding: 20px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px #00000010;
+        }
+
+        .card {
+            flex: 1;
+            min-height: 110px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 8px;
+            background: #6c63ff;
+            color: white;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .center-container {
+            justify-content: center;
+        }
+
+        .space-container {
+            justify-content: space-between;
+        }
+
+        .wrap-container {
+            flex-wrap: wrap;
+        }
+
+        .wrap-container .card {
+            flex: 1 1 180px;
+        }
+
+        footer {
+            margin-top: 40px;
+            padding: 20px;
+            text-align: center;
+            background: #24243e;
+            color: white;
+        }
+
+        @media (max-width: 600px) {
+            .flex-container {
+                flex-direction: column;
+            }
+
+            .wrap-container {
+                flex-direction: row;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>Flexbox Practice</h1>
+        <p>Learning CSS Flexbox with simple examples</p>
+    </header>
+
+    <main>
+        <h2 class="section-title">1. Basic Flexbox</h2>
+        <div class="flex-container">
+            <div class="card">Item 1</div>
+            <div class="card">Item 2</div>
+            <div class="card">Item 3</div>
+        </div>
+
+        <h2 class="section-title">2. Center Alignment</h2>
+        <div class="flex-container center-container">
+            <div class="card">Centered 1</div>
+            <div class="card">Centered 2</div>
+        </div>
+
+        <h2 class="section-title">3. Space Between</h2>
+        <div class="flex-container space-container">
+            <div class="card">Left</div>
+            <div class="card">Middle</div>
+            <div class="card">Right</div>
+        </div>
+
+        <h2 class="section-title">4. Flex Wrap</h2>
+        <div class="flex-container wrap-container">
+            <div class="card">Box 1</div>
+            <div class="card">Box 2</div>
+            <div class="card">Box 3</div>
+            <div class="card">Box 4</div>
+        </div>
+    </main>
+
+    <footer>
+        <p>Created by Sangeetha | HTML & CSS Practice</p>
+    </footer>
+
+</body>
+</html>
+```
