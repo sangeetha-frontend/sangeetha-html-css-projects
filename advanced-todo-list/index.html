@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Advanced To-Do List | Sangeetha</title>
+  <style>
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 24px;
+    }
+
+    .app {
+      width: 100%;
+      max-width: 520px;
+      background: white;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 15px 40px #2223;
+    }
+
+    h1 { margin: 0 0 8px; color: #252547; }
+    .subtitle { color: #777; margin-bottom: 24px; }
+
+    .input-row {
+      display: flex;
+      gap: 10px;
+    }
+
+    input, select, button {
+      font: inherit;
+      border-radius: 9px;
+      padding: 12px;
+    }
+
+    #taskInput {
+      flex: 1;
+      min-width: 0;
+      border: 1px solid #ddd;
+    }
+
+    button {
+      border: 0;
+      cursor: pointer;
+      background: #6657d9;
+      color: white;
+    }
+
+    button:hover { opacity: 0.88; }
+
+    .filters {
+      display: flex;
+      gap: 8px;
+      margin: 18px 0;
+      flex-wrap: wrap;
+    }
+
+    .filters button { background: #eee; color: #333; }
+    .filters button.active { background: #6657d9; color: white; }
+
+    #taskList { list-style: none; padding: 0; margin: 0; }
+
+    .task {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 13px 0;
+      border-bottom: 1px solid #eee;
+    }
+
+    .task input { width: 18px; height: 18px; }
+    .task-text { flex: 1; overflow-wrap: anywhere; }
+    .task.completed .task-text {
+      text-decoration: line-through;
+      color: #999;
+    }
+
+    .delete-btn { background: #ef4444; padding: 8px 10px; }
+    #status { color: #777; font-size: 14px; margin-top: 18px; }
+
+    @media (max-width: 420px) {
+      .app { padding: 20px; }
+      .input-row { flex-wrap: wrap; }
+      #taskInput { flex-basis: 100%; }
+    }
+  </style>
+</head>
+<body>
+  <main class="app">
+    <h1>My To-Do List ✨</h1>
+    <p class="subtitle">Plan your day. Complete your goals.</p>
+
+    <form id="taskForm" class="input-row">
+      <input id="taskInput" type="text"
+             placeholder="Enter a task..." maxlength="150"
+             aria-label="New task" required>
+      <button type="submit">Add Task +</button>
+    </form>
+
+    <div class="filters" aria-label="Task filters">
+      <button type="button" class="active" data-filter="all">All</button>
+      <button type="button" data-filter="pending">Pending</button>
+      <button type="button" data-filter="completed">Completed</button>
+    </div>
+
+    <ul id="taskList"></ul>
+    <p id="status" aria-live="polite">0 tasks remaining</p>
+  </main>
+
+  <script>
+    const form = document.getElementById("taskForm");
+    const input = document.getElementById("taskInput");
+    const list = document.getElementById("taskList");
+    const status = document.getElementById("status");
+    const filterButtons = document.querySelectorAll("[data-filter]");
+
+    let tasks = JSON.parse(localStorage.getItem("sangeethaTasks") || "[]");
+    let currentFilter = "all";
+
+    function saveTasks() {
+      localStorage.setItem("sangeethaTasks", JSON.stringify(tasks));
+    }
+
+    function renderTasks() {
+      list.replaceChildren();
+
+      const visibleTasks = tasks.filter(task => {
+        if (currentFilter === "pending") return !task.completed;
+        if (currentFilter === "completed") return task.completed;
+        return true;
+      });
+
+      if (visibleTasks.length === 0) {
+        const empty = document.createElement("li");
+        empty.textContent = "No tasks here. Add one to get started!";
+        empty.style.cssText = "padding:18px 0;color:#888";
+        list.appendChild(empty);
+      }
+
+      visibleTasks.forEach(task => {
+        const item = document.createElement("li");
+        item.className = "task" + (task.completed ? " completed" : "");
+
+        const checkbox = document.createElement("input");
+        checkbox.type = "checkbox";
+        checkbox.checked = task.completed;
+        checkbox.setAttribute("aria-label", "Mark task complete");
+
+        checkbox.addEventListener("change", () => {
+          task.completed = checkbox.checked;
+          saveTasks();
+          renderTasks();
+        });
+
+        const text = document.createElement("span");
+        text.className = "task-text";
+        text.textContent = task.text;
+
+        const remove = document.createElement("button");
+        remove.type = "button";
+        remove.className = "delete-btn";
+        remove.textContent = "Delete";
+        remove.setAttribute("aria-label", "Delete " + task.text);
+
+        remove.addEventListener("click", () => {
+          tasks = tasks.filter(item => item.id !== task.id);
+          saveTasks();
+          renderTasks();
+        });
+
+        item.append(checkbox, text, remove);
+        list.appendChild(item);
+      });
+
+      const remaining = tasks.filter(task => !task.completed).length;
+      status.textContent =
+        `${remaining} task${remaining === 1 ? "" : "s"} remaining · ${tasks.length} total`;
+
+      filterButtons.forEach(button => {
+        button.classList.toggle(
+          "active", button.dataset.filter === currentFilter
+        );
+      });
+    }
+
+    form.addEventListener("submit", event => {
+      event.preventDefault();
+      const text = input.value.trim();
+      if (!text) return;
+
+      tasks.push({
+        id: Date.now() + Math.random(),
+        text,
+        completed: false
+      });
+
+      saveTasks();
+      input.value = "";
+      currentFilter = "all";
+      renderTasks();
+      input.focus();
+    });
+
+    filterButtons.forEach(button => {
+      button.addEventListener("click", () => {
+        currentFilter = button.dataset.filter;
+        renderTasks();
+      });
+    });
+
+    renderTasks();
+  </script>
+</body>
+</html>
