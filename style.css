@@ -501,6 +501,17 @@ footer {
     }
 }
 
+/* Fix JavaScript project screenshots */
+#javascript-projects .project-card > img {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: auto !important;
+    max-height: none !important;
+    object-fit: contain !important;
+    object-position: top center;
+}
+
 .project-card .project-image img {
     display: block;
     width: 100%;
