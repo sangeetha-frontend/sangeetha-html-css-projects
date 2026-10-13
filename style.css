@@ -511,11 +511,3 @@ footer {
     object-fit: contain !important;
     object-position: top center;
 }
-
-.project-card .project-image img {
-    display: block;
-    width: 100%;
-    height: auto;
-    max-width: 100%;
-    object-fit: contain;
-}
