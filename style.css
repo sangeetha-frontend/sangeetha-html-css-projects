@@ -485,3 +485,23 @@ footer p {
         align-items: flex-start;
     }
 }
+
+/* Final fix for project screenshots */
+.project-card {
+    height: auto !important;
+}
+
+.project-image {
+    height: auto !important;
+    max-height: none !important;
+    overflow: visible !important;
+}
+
+.project-image img {
+    display: block !important;
+    width: 100% !important;
+    height: auto !important;
+    max-height: none !important;
+    object-fit: contain !important;
+    object-position: top center !important;
+}
