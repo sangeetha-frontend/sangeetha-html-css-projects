@@ -690,6 +690,23 @@
         grid-template-columns: 1fr;
     }
 }
+
+    .js-projects .projects-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.js-projects .project-card img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+@media (max-width: 600px) {
+    .js-projects .projects-grid {
+        grid-template-columns: 1fr;
+    }
+}
 </style>
 </body>
 
