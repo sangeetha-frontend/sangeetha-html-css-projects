@@ -26,9 +26,7 @@ a {
 }
 
 img {
-    display: block;
     max-width: 100%;
-    height: auto;
 }
 
 .container {
@@ -501,13 +499,10 @@ footer {
     }
 }
 
-/* Fix JavaScript project screenshots */
-#javascript-projects .project-card > img {
+.project-card .project-image img {
     display: block;
     width: 100%;
+    height: auto;
     max-width: 100%;
-    height: auto !important;
-    max-height: none !important;
-    object-fit: contain !important;
-    object-position: top center;
+    object-fit: contain;
 }
