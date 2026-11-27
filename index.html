@@ -4,579 +4,173 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Sangeetha - Frontend Developer creating responsive and modern websites using HTML, CSS and JavaScript.">
-  <title>Sangeetha | Frontend Developer</title>
-
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      scroll-behavior: smooth;
-    }
-
-    body {
-      font-family: Arial, sans-serif;
-      background: #090b10;
-      color: #f5f5f5;
-      line-height: 1.6;
-    }
-
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
-
-    .container {
-      width: 90%;
-      max-width: 1150px;
-      margin: auto;
-    }
-
-    header {
-      padding: 24px 0;
-      border-bottom: 1px solid #22252e;
-      position: sticky;
-      top: 0;
-      background: rgba(9,11,16,.95);
-      z-index: 10;
-    }
-
-    nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 20px;
-    }
-
-    .logo {
-      font-size: 25px;
-      font-weight: bold;
-    }
-
-    .logo span {
-      color: #a78bfa;
-    }
-
-    nav ul {
-      display: flex;
-      gap: 25px;
-      list-style: none;
-    }
-
-    nav ul a {
-      color: #b9bbc5;
-      font-size: 14px;
-      transition: .3s;
-    }
-
-    nav ul a:hover {
-      color: #a78bfa;
-    }
-
-    .button {
-      display: inline-block;
-      padding: 12px 22px;
-      border-radius: 7px;
-      background: linear-gradient(120deg,#7654f6,#23b6e8);
-      color: white;
-      font-weight: bold;
-      transition: .3s;
-    }
-
-    .button:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 8px 25px #7654f655;
-    }
-
-    .hero {
-      min-height: 570px;
-      display: flex;
-      align-items: center;
-      padding: 90px 0;
-      background:
-        radial-gradient(ellipse at 80% 30%,#30205b55,transparent 45%),
-        #090b10;
-    }
-
-    .tag {
-      display: inline-block;
-      color: #c4b5fd;
-      border: 1px solid #6650a7;
-      background: #241a3c;
-      padding: 8px 15px;
-      border-radius: 30px;
-      font-size: 12px;
-      letter-spacing: 1px;
-      margin-bottom: 25px;
-    }
-
-    .hero h1 {
-      font-size: clamp(40px,7vw,75px);
-      line-height: 1.1;
-      max-width: 850px;
-      margin-bottom: 22px;
-    }
-
-    .hero h1 span {
-      color: #a78bfa;
-    }
-
-    .hero p {
-      max-width: 650px;
-      color: #a5a7b2;
-      font-size: 18px;
-      margin-bottom: 32px;
-    }
-
-    .outline-button {
-      display: inline-block;
-      border: 1px solid #555968;
-      padding: 11px 20px;
-      border-radius: 7px;
-      margin-left: 10px;
-      transition: .3s;
-    }
-
-    .outline-button:hover {
-      border-color: #a78bfa;
-      color: #c4b5fd;
-    }
-
-    section {
-      padding: 90px 0;
-    }
-
-    .section-label {
-      color: #a78bfa;
-      font-size: 13px;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      margin-bottom: 12px;
-    }
-
-    .section-title {
-      font-size: clamp(32px,5vw,48px);
-      margin-bottom: 18px;
-    }
-
-    .section-description {
-      color: #a5a7b2;
-      max-width: 650px;
-      margin-bottom: 40px;
-    }
-
-    .about-content {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 45px;
-      align-items: center;
-    }
-
-    .about-content p {
-      color: #a5a7b2;
-      margin-bottom: 15px;
-    }
-
-    .about-box {
-      background: #12151e;
-      border: 1px solid #292d39;
-      border-radius: 15px;
-      padding: 30px;
-    }
-
-    .skills {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-    }
-
-    .skill {
-      padding: 12px 20px;
-      border-radius: 7px;
-      background: #171b27;
-      border: 1px solid #303544;
-      color: #d5d5e0;
-    }
-
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(2,1fr);
-      gap: 25px;
-    }
-
-    .project-card {
-      background: #12151e;
-      border: 1px solid #292d39;
-      border-radius: 14px;
-      overflow: hidden;
-      transition: .3s;
-    }
-
-    .project-card:hover {
-      transform: translateY(-7px);
-      border-color: #8266e9;
-      box-shadow: 0 12px 35px #0006;
-    }
-
-    .project-visual {
-      height: 230px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 25px;
-      background: linear-gradient(135deg,#272044,#101d34);
-    }
-
-    .project-visual div {
-      width: 90%;
-      height: 100%;
-      border: 1px solid #ffffff35;
-      border-radius: 8px;
-      background: #10131c;
-      padding: 22px;
-      box-shadow: 0 10px 30px #0007;
-    }
-
-    .project-visual h3 {
-      color: #c4b5fd;
-      margin-bottom: 10px;
-    }
-
-    .project-visual p {
-      font-size: 12px;
-      color: #b9bbc5;
-    }
-
-    .project-info {
-      padding: 25px;
-    }
-
-    .project-info h3 {
-      font-size: 23px;
-      margin-bottom: 10px;
-    }
-
-    .project-info p {
-      color: #a5a7b2;
-      font-size: 14px;
-      margin-bottom: 15px;
-    }
-
-    .project-tag {
-      color: #c4b5fd;
-      font-size: 12px;
-    }
-
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(3,1fr);
-      gap: 20px;
-    }
-
-    .service-card {
-      background: #12151e;
-      border: 1px solid #292d39;
-      padding: 30px;
-      border-radius: 12px;
-    }
-
-    .service-card h3 {
-      margin-bottom: 12px;
-    }
-
-    .service-card p {
-      color: #a5a7b2;
-      font-size: 14px;
-    }
-
-    .contact {
-      text-align: center;
-      background: radial-gradient(ellipse at center,#29204b55,transparent 65%);
-    }
-
-    .contact p {
-      color: #a5a7b2;
-      margin: 15px auto 30px;
-      max-width: 600px;
-    }
-
-    footer {
-      padding: 25px 0;
-      border-top: 1px solid #292d39;
-      text-align: center;
-      color: #8d909d;
-      font-size: 13px;
-    }
-
-    @media(max-width:768px) {
-      nav {
-        flex-wrap: wrap;
-      }
-
-      nav ul {
-        width: 100%;
-        justify-content: center;
-        flex-wrap: wrap;
-        gap: 15px;
-      }
-
-      .hero {
-        min-height: 480px;
-      }
-
-      .about-content,
-      .projects-grid,
-      .services-grid {
-        grid-template-columns: 1fr;
-      }
-
-      section {
-        padding: 65px 0;
-      }
-
-      .outline-button {
-        margin: 12px 0 0;
-      }
-    }
-  </style>
+  <meta name="description" content="Sangeetha — Web Designer & Developer creating thoughtful digital experiences.">
+  <title>Sangeetha | Web Designer & Developer</title>
+  <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-<header>
-  <div class="container">
-    <nav>
-      <a href="#" class="logo">Sangeetha<span>.</span></a>
+  <header class="header">
+    <a href="#" class="logo">S.</a>
 
-      <ul>
-        <li><a href="#about">About</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-
-      <a href="#contact" class="button">Start a Project</a>
+    <nav class="nav">
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
     </nav>
-  </div>
-</header>
 
-<main>
+    <a href="#contact" class="header-link">Let's Talk ↗</a>
+  </header>
 
-  <section class="hero">
-    <div class="container">
-      <span class="tag">WEBFLOW & FRONTEND DEVELOPER</span>
+  <main>
+    <section class="hero">
+      <p class="eyebrow">INDEPENDENT WEB DESIGNER & DEVELOPER</p>
 
       <h1>
-        Sangeetha | <span>Webflow Developer</span>
+        Designing digital<br>
+        experiences with<br>
+        <span>purpose & creativity.</span>
       </h1>
 
+      <p class="hero-description">
+        Hello, I'm Sangeetha. I create thoughtful websites
+        that bring ideas to life through design and code.
+      </p>
+
+      <div class="hero-actions">
+        <a href="#projects" class="button">Explore My Work ↗</a>
+        <a href="#about" class="text-link">More About Me</a>
+      </div>
+
+      <p class="location">BASED IN INDIA · AVAILABLE FOR REMOTE PROJECTS</p>
+    </section>
+
+    <section id="about" class="section about">
+      <p class="eyebrow">01 / ABOUT ME</p>
+      <h2>Design-minded.<br><span>Development-focused.</span></h2>
+
       <p>
-        I build modern, responsive and user-friendly websites
-        that help businesses create a strong digital presence.
+        I'm Sangeetha, an aspiring Web Designer and Developer
+        passionate about creating clean, engaging and
+        user-friendly digital experiences.
       </p>
-
-      <a href="#projects" class="button">Explore My Work</a>
-      <a href="#contact" class="outline-button">Let's Connect</a>
-    </div>
-  </section>
-
-  <section id="about">
-    <div class="container">
-      <div class="about-content">
-        <div>
-          <div class="section-label">About Me</div>
-          <h2 class="section-title">Turning ideas into digital experiences.</h2>
-
-          <p>
-            Hello! I'm Sangeetha, a frontend and Webflow developer
-            passionate about creating clean, modern and responsive websites.
-          </p>
-
-          <p>
-            I enjoy combining thoughtful design with frontend development
-            to build websites that look great and work smoothly across devices.
-          </p>
-        </div>
-
-        <div class="about-box">
-          <h3>What I Focus On</h3>
-          <br>
-          <p>✓ Clean and modern layouts</p>
-          <p>✓ Responsive website design</p>
-          <p>✓ User-friendly experiences</p>
-          <p>✓ Attention to visual details</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="skills">
-    <div class="container">
-      <div class="section-label">My Expertise</div>
-      <h2 class="section-title">Skills & Technologies</h2>
-      <p class="section-description">
-        Technologies and tools I use to build websites and digital experiences.
+      <p>
+        I enjoy combining visual creativity with front-end
+        development to turn ideas into functional websites.
+        I'm continuously learning and building projects
+        to improve my skills.
       </p>
+    </section>
 
-      <div class="skills">
-        <span class="skill">Webflow</span>
-        <span class="skill">HTML5</span>
-        <span class="skill">CSS3</span>
-        <span class="skill">JavaScript</span>
-        <span class="skill">Responsive Design</span>
-        <span class="skill">Website Design</span>
+    <section id="skills" class="section">
+      <p class="eyebrow">02 / MY EXPERTISE</p>
+      <h2>Skills & Tools</h2>
+
+      <div class="skills-grid">
+        <div class="skill">01 <h3>HTML</h3><p>Website structure</p></div>
+        <div class="skill">02 <h3>CSS</h3><p>Visual styling & layouts</p></div>
+        <div class="skill">03 <h3>JavaScript</h3><p>Interactive experiences</p></div>
+        <div class="skill">04 <h3>Webflow</h3><p>Visual website building</p></div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section id="projects">
-    <div class="container">
-      <div class="section-label">Portfolio</div>
-      <h2 class="section-title">Selected Work</h2>
-      <p class="section-description">
-        A selection of website concepts and frontend projects.
+    <section id="projects" class="section">
+      <p class="eyebrow">03 / SELECTED WORK</p>
+      <h2>Things I've created.</h2>
+      <p class="section-intro">
+        A selection of practice projects and personal experiments.
       </p>
 
       <div class="projects-grid">
-
-        <article class="project-card">
-          <div class="project-visual">
-            <div>
-              <h3>FITNESS</h3>
-              <p>TRAIN HARD. STAY STRONG.</p>
-              <p>Modern Fitness Experience</p>
-            </div>
-          </div>
-          <div class="project-info">
-            <h3>Fitness Landing Page</h3>
-            <p>
-              A bold fitness website concept designed to showcase
-              training programs, fitness services and membership options
-              through a clear and engaging layout.
-            </p>
-            <span class="project-tag">Webflow • Landing Page</span>
-          </div>
+        <article class="project">
+          <div class="project-preview preview-one">01</div>
+          <p class="project-type">JAVASCRIPT</p>
+          <h3>Advanced Calculator</h3>
+          <p>An interactive calculator built to perform mathematical operations with a clean interface.</p>
+          <a href="./advanced-calculator/" target="_blank">View Project ↗</a>
         </article>
 
-        <article class="project-card">
-          <div class="project-visual">
-            <div>
-              <h3>GROWTH STUDIO</h3>
-              <p>BUILD YOUR DIGITAL FUTURE</p>
-              <p>Creative Digital Solutions</p>
-            </div>
-          </div>
-          <div class="project-info">
-            <h3>Digital Growth Agency</h3>
-            <p>
-              A professional agency website concept created to present
-              digital marketing services, creative solutions and
-              business growth strategies.
-            </p>
-            <span class="project-tag">Webflow • Agency UI</span>
-          </div>
+        <article class="project">
+          <div class="project-preview preview-two">02</div>
+          <p class="project-type">JAVASCRIPT</p>
+          <h3>Advanced Todo List</h3>
+          <p>A task management interface designed to help users organize and track daily tasks.</p>
+          <a href="./advanced-todo-list/" target="_blank">View Project ↗</a>
         </article>
 
-        <article class="project-card">
-          <div class="project-visual">
-            <div>
-              <h3>THE TASTE HOUSE</h3>
-              <p>GOOD FOOD. GREAT MOMENTS.</p>
-              <p>Discover Our Menu</p>
-            </div>
-          </div>
-          <div class="project-info">
-            <h3>Restaurant Website</h3>
-            <p>
-              A stylish restaurant website concept designed to highlight
-              the restaurant identity, menu offerings and dining
-              experience in an inviting way.
-            </p>
-            <span class="project-tag">Webflow • Responsive Site</span>
-          </div>
+        <article class="project">
+          <div class="project-preview preview-three">03</div>
+          <p class="project-type">HTML & CSS</p>
+          <h3>Contact Forms</h3>
+          <p>A collection of contact form layouts designed for clear and simple user interaction.</p>
+          <a href="./contact-forms/" target="_blank">View Project ↗</a>
         </article>
 
-        <article class="project-card">
-          <div class="project-visual">
-            <div>
-              <h3>YOUR BUSINESS</h3>
-              <p>IDEAS INTO IMPACT</p>
-              <p>Discover Our Services</p>
-            </div>
-          </div>
-          <div class="project-info">
-            <h3>Business Website</h3>
-            <p>
-              A clean business website concept focused on presenting
-              company information, services and brand value with
-              a simple, professional user experience.
-            </p>
-            <span class="project-tag">Webflow • Business Site</span>
-          </div>
+        <article class="project">
+          <div class="project-preview preview-four">04</div>
+          <p class="project-type">CSS</p>
+          <h3>Flexbox Practice</h3>
+          <p>A layout practice project exploring flexible, responsive page arrangements.</p>
+          <a href="./flexbox-practice/" target="_blank">View Project ↗</a>
         </article>
 
+        <article class="project">
+          <div class="project-preview preview-five">05</div>
+          <p class="project-type">WEB DEVELOPMENT</p>
+          <h3>Mini Ecommerce</h3>
+          <p>A small e-commerce website concept exploring product presentation and shopping layouts.</p>
+          <a href="./mini-ecommerce/" target="_blank">View Project ↗</a>
+        </article>
+
+        <article class="project">
+          <div class="project-preview preview-six">06</div>
+          <p class="project-type">JAVASCRIPT</p>
+          <h3>Password Generator</h3>
+          <p>A useful tool concept for generating passwords with customizable options.</p>
+          <a href="./password-generator/" target="_blank">View Project ↗</a>
+        </article>
+
+        <article class="project">
+          <div class="project-preview preview-seven">07</div>
+          <p class="project-type">HTML & CSS</p>
+          <h3>Skills Cards</h3>
+          <p>A visual card layout for presenting skills in a simple and organized way.</p>
+          <a href="./skills-cards/" target="_blank">View Project ↗</a>
+        </article>
+
+        <article class="project">
+          <div class="project-preview preview-eight">08</div>
+          <p class="project-type">HTML & CSS</p>
+          <h3>Website Header</h3>
+          <p>A website navigation header concept focused on clean structure and usability.</p>
+          <a href="./website-header/" target="_blank">View Project ↗</a>
+        </article>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section id="services">
-    <div class="container">
-      <div class="section-label">What I Do</div>
-      <h2 class="section-title">My Services</h2>
+    <section class="section services">
+      <p class="eyebrow">04 / WHAT I CAN DO</p>
+      <h2>Services</h2>
+      <div class="service-row"><span>01</span> Website Design</div>
+      <div class="service-row"><span>02</span> Front-End Development</div>
+      <div class="service-row"><span>03</span> Responsive Websites</div>
+      <div class="service-row"><span>04</span> Webflow Website Building</div>
+    </section>
 
-      <div class="services-grid">
-        <div class="service-card">
-          <h3>Webflow Development</h3>
-          <p>
-            Building responsive websites using Webflow with
-            clean layouts and modern design.
-          </p>
-        </div>
+    <section id="contact" class="section contact">
+      <p class="eyebrow">05 / GET IN TOUCH</p>
+      <h2>Have an idea?<br><span>Let's create it.</span></h2>
+      <p>I'm open to discussing creative projects and opportunities.</p>
+      <a class="button" href="mailto:sangeethamallareddy@gmail.com">Email Me ↗</a>
+    </section>
+  </main>
 
-        <div class="service-card">
-          <h3>Frontend Development</h3>
-          <p>
-            Creating structured and responsive interfaces
-            using HTML, CSS and JavaScript.
-          </p>
-        </div>
+  <footer>
+    <p>© 2026 Sangeetha. Designed with intention.</p>
+    <a href="#">Back to top ↑</a>
+  </footer>
 
-        <div class="service-card">
-          <h3>Landing Page Design</h3>
-          <p>
-            Designing attractive landing pages that clearly
-            communicate products and services.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="contact" class="contact">
-    <div class="container">
-      <div class="section-label">Get In Touch</div>
-      <h2 class="section-title">Have a project in mind?</h2>
-
-      <p>
-        I'm open to discussing website projects and creative
-        collaborations. Let's create something meaningful together.
-      </p>
-
-      <a href="mailto:sangeethamallareddy@gmail.com" class="button">
-        Contact Me
-      </a>
-    </div>
-  </section>
-
-</main>
-
-<footer>
-  <div class="container">
-    © 2026 Sangeetha. All Rights Reserved.
-  </div>
-</footer>
-
+  <script src="script.js"></script>
 </body>
 </html>
